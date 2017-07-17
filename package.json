@@ -4,7 +4,7 @@
   "description": "browser-side require() the node way",
   "main": "index.js",
   "bin": {
-    "browserify": "bin/cmd.js"
+    "browserify-babylon": "bin/cmd.js"
   },
   "repository": {
     "type": "git",

@@ -45,10 +45,10 @@ Export functionality by assigning onto `module.exports` or `exports`:
 module.exports = function (n) { return n * 111 }
 ```
 
-Now just use the `browserify` command to build a bundle starting at `main.js`:
+Now just use the `browserify-babylon` command to build a bundle starting at `main.js`:
 
 ```
-$ browserify main.js > bundle.js
+$ browserify-babylon main.js > bundle.js
 ```
 
 All of the modules that `main.js` needs are included in the `bundle.js` from a
@@ -63,13 +63,13 @@ html!
 With [npm](https://www.npmjs.com/) do:
 
 ```
-npm install -g browserify
+npm install -g @zdychacek/browserify-babylon
 ```
 
 # usage
 
 ```
-Usage: browserify [entry files] {OPTIONS}
+Usage: browserify-babylon [entry files] {OPTIONS}
 
 Standard Options:
 
@@ -283,7 +283,7 @@ you can `require()` modules from another script tag. Here we'll create a
 and [duplexer](https://www.npmjs.com/package/duplexer) modules.
 
 ```
-$ browserify -r through -r duplexer -r ./my-file.js:my-module > bundle.js
+$ browserify-babylon -r through -r duplexer -r ./my-file.js:my-module > bundle.js
 ```
 
 Then in your page you can do:
@@ -304,7 +304,7 @@ If you prefer the source maps be saved to a separate `.js.map` source map file, 
 [exorcist](https://github.com/thlorenz/exorcist) in order to achieve that. It's as simple as:
 
 ```
-$ browserify main.js --debug | exorcist bundle.js.map > bundle.js
+$ browserify-babylon main.js --debug | exorcist bundle.js.map > bundle.js
 ```
 
 Learn about additional options [here](https://github.com/thlorenz/exorcist#usage).
@@ -341,9 +341,9 @@ module.exports = function (s) { return s.toUpperCase() + '!' };
 ```
 
 ```
-$ browserify -r ./robot.js > static/common.js
-$ browserify -x ./robot.js beep.js > static/beep.js
-$ browserify -x ./robot.js boop.js > static/boop.js
+$ browserify-babylon -r ./robot.js > static/common.js
+$ browserify-babylon -x ./robot.js beep.js > static/beep.js
+$ browserify-babylon -x ./robot.js boop.js > static/boop.js
 ```
 
 Then on the beep page you can have:
@@ -785,7 +785,7 @@ common bundle. Use plugins with `-p` and pass options to plugins with
 [subarg](https://www.npmjs.com/package/subarg) syntax:
 
 ```
-browserify x.js y.js -p [ factor-bundle -o bundle/x.js -o bundle/y.js ] \
+browserify-babylon x.js y.js -p [ factor-bundle -o bundle/x.js -o bundle/y.js ] \
   > bundle/common.js
 ```
 
