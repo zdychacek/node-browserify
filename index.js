@@ -2,7 +2,7 @@ var mdeps = require('@zdychacek/module-deps');
 var depsSort = require('deps-sort');
 var bpack = require('browser-pack');
 var insertGlobals = require('@zdychacek/insert-module-globals');
-var syntaxError = require('syntax-error');
+var syntaxError = require('@zdychacek/syntax-error');
 
 var builtins = require('./lib/builtins.js');
 
@@ -52,6 +52,7 @@ function Browserify (files, opts) {
     }
 
     opts.dedupe = opts.dedupe === false ? false : true;
+    opts.parserPlugins = opts.parserPlugins || [];
 
     self._external = [];
     self._exclude = [];
@@ -568,9 +569,11 @@ Browserify.prototype._createDeps = function (opts) {
                 ? '/'
                 : opts.basedir || process.cwd()
             ,
-            vars: vars
+            vars: vars,
+            parserPlugins: opts.parserPlugins
         }));
     }
+
     return mdeps(mopts);
 };
 
@@ -638,7 +641,7 @@ Browserify.prototype._syntax = function () {
     return through.obj(function (row, enc, next) {
         var h = shasum(row.source);
         if (typeof self._syntaxCache[h] === 'undefined') {
-            var err = syntaxError(row.source, row.file || row.id);
+            var err = syntaxError(row.source, row.file || row.id, { plugins: self._options.parserPlugins });
             if (err) return this.emit('error', err);
             self._syntaxCache[h] = true;
         }

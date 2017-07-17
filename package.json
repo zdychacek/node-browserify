@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/substack/node-browserify.git"
+    "url": "http://github.com/zdychacek/node-browserify.git"
   },
   "keywords": [
     "browser",
@@ -41,7 +41,7 @@
     "htmlescape": "^1.1.0",
     "https-browserify": "^1.0.0",
     "inherits": "~2.0.1",
-    "insert-module-globals": "^7.0.0",
+    "@zdychacek/insert-module-globals": "^7.0.0",
     "labeled-stream-splicer": "^2.0.0",
     "@zdychacek/module-deps": "^4.0.8",
     "os-browserify": "~0.1.1",
@@ -59,7 +59,7 @@
     "stream-http": "^2.0.0",
     "string_decoder": "~1.0.0",
     "subarg": "^1.0.0",
-    "syntax-error": "^1.1.1",
+    "@zdychacek/syntax-error": "^1.1.1",
     "through2": "^2.0.0",
     "timers-browserify": "^1.0.1",
     "tty-browserify": "~0.0.0",
