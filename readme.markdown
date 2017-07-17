@@ -100,7 +100,7 @@ Standard Options:
 
        --help, -h  Show this message
 
-For advanced options, type `browserify --help advanced`.
+For advanced options, type `browserify-babylon --help advanced`.
 
 Specify a parameter.
 ```
@@ -170,8 +170,8 @@ Advanced Options:
     all transforms to apply when running browserify, a custom field, like, e.g.
     package.json#browserify#production or package.json#browserify#staging
     can be used, by for example running:
-    * `browserify index.js --transform-key=production > bundle.js`
-    * `browserify index.js --transform-key=staging > bundle.js`
+    * `browserify-babylon index.js --transform-key=production > bundle.js`
+    * `browserify-babylon index.js --transform-key=staging > bundle.js`
 
   --node
 
@@ -370,7 +370,7 @@ described in the
 You can use the API directly too:
 
 ``` js
-var browserify = require('browserify');
+var browserify = require('@zdychacek/browserify-babylon');
 var b = browserify();
 b.add('./browser/main.js');
 b.bundle().pipe(process.stdout);
@@ -379,7 +379,7 @@ b.bundle().pipe(process.stdout);
 # methods
 
 ``` js
-var browserify = require('browserify')
+var browserify = require('@zdychacek/browserify-babylon')
 ```
 
 ## `browserify([files] [, opts])`
@@ -486,7 +486,7 @@ You can remove these calls with
 
 ```
 $ npm install -g derequire
-$ browserify main.js --standalone Foo | derequire > bundle.js
+$ browserify-babylon main.js --standalone Foo | derequire > bundle.js
 ```
 
 `opts.insertGlobalVars` will be passed to
@@ -601,7 +601,7 @@ b.transform(function (file) {
 Note that on the command-line with the `-c` flag you can just do:
 
 ```
-$ browserify -c 'coffee -sc' main.coffee > bundle.js
+$ browserify-babylon -c 'coffee -sc' main.coffee > bundle.js
 ```
 
 Or better still, use the [coffeeify](https://github.com/jnordberg/coffeeify)
@@ -609,7 +609,7 @@ module:
 
 ```
 $ npm install coffeeify
-$ browserify -t coffeeify main.coffee > bundle.js
+$ browserify-babylon -t coffeeify main.coffee > bundle.js
 ```
 
 If `opts.global` is `true`, the transform will operate on ALL files, despite
@@ -624,7 +624,7 @@ Transforms may obtain options from the command-line with
 [subarg](https://www.npmjs.com/package/subarg) syntax:
 
 ```
-$ browserify -t [ foo --bar=555 ] main.js
+$ browserify-babylon -t [ foo --bar=555 ] main.js
 ```
 
 or from the api:
