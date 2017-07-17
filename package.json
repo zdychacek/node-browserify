@@ -1,5 +1,5 @@
 {
-  "name": "browserify",
+  "name": "@zdychacek/browserify-babylon",
   "version": "14.4.0",
   "description": "browser-side require() the node way",
   "main": "index.js",
@@ -43,7 +43,7 @@
     "inherits": "~2.0.1",
     "insert-module-globals": "^7.0.0",
     "labeled-stream-splicer": "^2.0.0",
-    "module-deps": "^4.0.8",
+    "@zdychacek/module-deps": "^4.0.8",
     "os-browserify": "~0.1.1",
     "parents": "^1.0.1",
     "path-browserify": "~0.0.0",
