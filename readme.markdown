@@ -1,5 +1,7 @@
 # browserify
 
+This is a fork of `browserify` which use a `babylon` parser instead of `acorn`. It allows `browserify` to operate on ES2015+ source code. More info in this issue: [Replace `acorn` parser for `babylon`?](https://github.com/substack/node-detective/issues/71).
+
 `require('modules')` in the browser
 
 Use a [node](http://nodejs.org)-style `require()` to organize your browser code
@@ -8,8 +10,6 @@ and load modules installed by [npm](https://www.npmjs.com).
 browserify will recursively analyze all the `require()` calls in your app in
 order to build a bundle you can serve up to the browser in a single `<script>`
 tag.
-
-[![build status](https://img.shields.io/travis/substack/node-browserify/master.svg)](https://travis-ci.org/substack/node-browserify)
 
 ![browserify!](http://substack.net/images/browserify_logo.png)
 
@@ -211,6 +211,12 @@ Advanced Options:
   --plugin=MODULE, -p MODULE
 
     Register MODULE as a plugin.
+
+  --parser-plugins
+
+    Babylon parser plugins:
+
+      --parser-plugins [ objectRestSpread decorators ]
 
 Passing arguments to transforms and plugins:
 
