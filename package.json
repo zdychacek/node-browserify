@@ -1,6 +1,6 @@
 {
   "name": "@zdychacek/browserify-babylon",
-  "version": "15.0.0",
+  "version": "15.0.1",
   "description": "browser-side require() the node way",
   "main": "index.js",
   "bin": {
