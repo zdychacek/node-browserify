@@ -641,7 +641,7 @@ Browserify.prototype._syntax = function () {
     return through.obj(function (row, enc, next) {
         var h = shasum(row.source);
         if (typeof self._syntaxCache[h] === 'undefined') {
-            var err = syntaxError(row.source, row.file || row.id, { plugins: self._options.parserPlugins });
+            var err = syntaxError(row.source, row.file || row.id, { parserPlugins: self._options.parserPlugins });
             if (err) return this.emit('error', err);
             self._syntaxCache[h] = true;
         }
