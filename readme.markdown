@@ -1,6 +1,8 @@
 # browserify
 
-This is a fork of `browserify` which use a `babylon` parser instead of `acorn`. It allows `browserify` to operate on ES2015+ source code. More info in this issue: [Replace `acorn` parser for `babylon`?](https://github.com/substack/node-detective/issues/71).
+*This is a fork of [`browserify`](https://www.npmjs.com/package/browserify) which uses [`babylon`](https://www.npmjs.com/package/babylon) parser instead of [`acorn`](https://www.npmjs.com/package/acorn). It allows `browserify` to target transpilation into [`babel`](https://babeljs.io/) compatible code.*
+
+Why switching from `acorn` to `babylon`? Read this issue for more info: [Replace `acorn` parser for `babylon`?](https://github.com/substack/node-detective/issues/71).
 
 `require('modules')` in the browser
 
@@ -495,6 +497,8 @@ as the `opts.vars` parameter.
 
 `opts.externalRequireName` defaults to `'require'` in `expose` mode but you can
 use another name.
+
+`opts.parserPlugins` specifies a list of plugins for `babylon` parser.
 
 Note that if files do not contain javascript source code then you also need to
 specify a corresponding transform for them.
