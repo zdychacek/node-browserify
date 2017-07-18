@@ -1,3 +1,11 @@
+# 15.0.0
+
+replace `acorn` parser for `babylon` to allow transpilation into Babel compatible code
+
+- add `opts.parserPlugins` option for passing a list of plugins for `babylon` parser.
+
+- add `--parser-plugins` CLI option
+
 # 14.4.0
 
 update `string_decoder` to 1.0.0, which matches the latest node.js behavior more closely.
